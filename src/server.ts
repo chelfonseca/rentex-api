@@ -1,11 +1,8 @@
 import express from 'express';
+import { createCourse } from './routes';
 
 const app = express();
 
-app.get('/', (request, response) => {
-    
-     console.log('Server is listening');
-     return response.json({message: 'Everything is working again'})
-});
+app.get('/', createCourse);
 
 app.listen(3333);
