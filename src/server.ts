@@ -1,9 +1,9 @@
 import express from "express";
 
-import { createCourse } from "./routes";
-
 const app = express();
 
-app.get("/", createCourse);
+app.get("/", (request, response) => {
+  response.json({ message: "Server is Ok@" });
+});
 
-app.listen(3333);
+app.listen(3333, () => console.log("Server is listening at port 3333"));
