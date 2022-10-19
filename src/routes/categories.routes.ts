@@ -1,23 +1,21 @@
 import { Router } from "express";
-import { v4 as uuidV4 } from "uuid";
+
+import { Category } from "../model/Category";
 
 const categoriesRoutes = Router();
 
-interface ICategory {
-  name: string;
-  description: string;
-}
-
-const categories: ICategory[] = [];
+const categories: Category[] = [];
 
 categoriesRoutes.post("/", (request, response) => {
   const { name, description } = request.body;
 
-  const category = {
+  const category = new Category();
+
+  Object.assign(category, {
     name,
     description,
-    id: uuidV4(),
-  };
+    created_at: new Date(),
+  });
 
   categories.push(category);
 
