@@ -1,8 +1,9 @@
-import { Specification } from "../model/Specification";
+// eslint-disable-next-line import/no-unresolved
+import { Specification } from "../../model/Specification";
 import {
   ICreateSpecificationDTO,
   ISpecificationsRepository,
-} from "./ISpecificationsRepository";
+} from "../ISpecificationsRepository";
 
 class SpecificationsRepository implements ISpecificationsRepository {
   private specifications: Specification[];
