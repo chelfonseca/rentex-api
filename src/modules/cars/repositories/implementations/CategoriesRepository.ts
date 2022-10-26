@@ -1,14 +1,32 @@
+<<<<<<< HEAD:src/repositories/CategoriesRepository.ts
 import { Category } from "../model/Category";
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
 } from "./ICategoriesRepository";
+=======
+import { Category } from "../../model/Category";
+import {
+  ICategoriesRepository,
+  ICreateCategoryDTO,
+} from "../ICategoriesRepository";
+>>>>>>> temp-branch:src/modules/cars/repositories/implementations/CategoriesRepository.ts
 
 class CategoriesRepository implements ICategoriesRepository {
   private categories: Category[];
 
-  constructor() {
+  // eslint-disable-next-line no-use-before-define
+  private static INSTANCE: CategoriesRepository;
+
+  private constructor() {
     this.categories = [];
+  }
+
+  public static getInstance(): CategoriesRepository {
+    if (!CategoriesRepository.INSTANCE) {
+      CategoriesRepository.INSTANCE = new CategoriesRepository();
+    }
+    return CategoriesRepository.INSTANCE;
   }
 
   create({ description, name }: ICreateCategoryDTO): void {
