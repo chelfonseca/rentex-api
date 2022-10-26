@@ -1,4 +1,4 @@
-## Rentex API
+## Rentex API ( car rent )
 
 ### Requirements
 
